@@ -1,5 +1,30 @@
 # Reactor sous le capot 
 
+## Reactor c'est quoi ?
+
+reactor est une librairie de l'écosystème spring qui implémente les reactives streams. 
+
+Les [reactives streams](https://www.reactive-streams.org/), c'est une spec qui date de 2015 qui permet de décrire comment gérer des streams de données asynchrones. 
+La spec est assez épurée, il y'a 3 interfaces et un TCK (test compliant kit) qui permet de valider les implémentations.
+
+reactor est une implémentation mais il en existe pleins d'autre. La spec reactive streams permet l'interopérabilité entre les différentes implémentations. 
+
+Il existe par exemple : 
+* [reactor](https://projectreactor.io/) : monde spring 
+* [pekko](https://pekko.apache.org/) : monde play framework, scala 
+* [mutiny](https://smallrye.io/smallrye-mutiny/latest/) : monde quarkus
+* [rxjava](https://github.com/ReactiveX/RxJava) 
+
+Des drivers de bases de données expose aussi des reactives stream : 
+* [MongoDb](https://www.mongodb.com/docs/languages/java/reactive-streams-driver/current/)
+* [R2dbc](https://r2dbc.io/) : BDD relationnelles 
+* ...
+
+Ici on va voir comment fonctionne la backpressure dans les reactive streams. 
+Depuis le jdk 21 il existe les virtual threads qui couvrent certaines problématiques adressées par les reactive streams. 
+
+Pas de prise de partie pour savoir si les virtual threads sont mieux ou pas, on va juste voir comment fonctionne les reactives streams et puis c'est tout.
+
 ## Les différents modèles d'exécution:  
 
 Pour illustrer les différents modèles d'exécution, on va utiliser l'image du restaurant ou : 
